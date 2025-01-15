@@ -1,4 +1,6 @@
-const { Router } = require("express");
+// const { Router } = require("express");
+
+import { Router } from "express";
 
 const routes = new Router();
 
@@ -7,4 +9,5 @@ routes.get("/", (request, response) => {
 
 })
 
-module.exports = routes;
+// module.exports = routes;
+export default routes;
