@@ -2,10 +2,10 @@ import Sequelize from "sequelize";
 
 import configDatabase from "../config/database";
 
-import user from "../app/models/user";
+import User from "../app/models/User";
 
 
-const models = [user];
+const models = [User];
 
 
 
