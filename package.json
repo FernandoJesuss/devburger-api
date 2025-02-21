@@ -1,7 +1,7 @@
 {
   "name": "devburger-api",
   "version": "1.0.0",
-  "type":"module", 
+  
   "description": "DevBurger API.",
   "main": "src/server.js",
   "scripts": {
