@@ -3,6 +3,7 @@ import Order from "../schemas/Order";
 import Product from "../models/Product";
 import Category from "../models/Category";
 
+
 class OrderController {
   async store(request, response) {
     const schema = Yup.object({
@@ -12,15 +13,17 @@ class OrderController {
           Yup.object({
             id: Yup.number().required(),
             quantity: Yup.number().required(),
-          })
+          }),
         ),
     });
 
     try {
-      schema.validate(request.body, { abortEarly: false });
+      schema.validateSync(request.body, { abortEarly: false });
     } catch (err) {
       return response.status(400).json({ error: err.errors });
     }
+    
+    
 
     const { products } = request.body;
 
@@ -39,8 +42,8 @@ class OrderController {
       ],
     });
 
-    const formattedProducts = findProducts.map(product => {
-const productIndex = products.findIndex(item => item.id === product.id);
+    const formattedProducts = findProducts.map((product) => {
+const productIndex = products.findIndex((item) => item.id === product.id);
 
         const newProduct = {
          id: product.id,
@@ -58,10 +61,14 @@ const productIndex = products.findIndex(item => item.id === product.id);
         id: request.userId,
         name: request.userName,
       },
+
       products: formattedProducts,
+      status: "Pedido realizado",
     };
 
-    return response.status(201).json(order);
+    const createdOrder = await Order.create(order);
+
+    return response.status(201).json(createdOrder);
   }
 }
 
