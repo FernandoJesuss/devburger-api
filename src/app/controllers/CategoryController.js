@@ -137,12 +137,7 @@ class CategoryController {
         },
       }
     );
-
-    // const { id } = await Category.create({
-    //     name,
-    //   path,
-    // });
-
+ 
     return response.status(200).json();
   }
 
