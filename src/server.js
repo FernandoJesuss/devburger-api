@@ -1,5 +1,6 @@
-// const app =require("./app");
 
-import app from "./app";
+import 'dotenv/config';
+import app from './app.js';
 
-app.listen(3001, () => console.log("Server is running at 3001..."))
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Server is running at ${PORT}...`));

@@ -1,0 +1,25 @@
+# Node modules
+node_modules/
+
+# Variáveis de ambiente
+.env
+
+# Arquivos de uploads (imagens, etc)
+uploads/
+
+# Logs
+*.log
+
+# Configurações do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos do editor
+.vscode/
+.idea/
+
+# Arquivos do Sequelize CLI
+.sequelizerc
+
+# Arquivos do Nodemon
+nodemon.json
